@@ -13,7 +13,7 @@ RSpec.describe MoviesController, type: :controller do
       expect(response.content_type).to match(CONTENT_TYPE_MATH)
 
       parsed_response = JSON.parse(response.body)
-      expect(parsed_response.length).to eq(3)
+      expect(parsed_response['movies'].length).to eq(3)
     end
   end
 
