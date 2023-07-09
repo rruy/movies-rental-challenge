@@ -7,6 +7,7 @@ class RentalsController < ApplicationController
   end
 
   def create
+    binding.pry
     return render json: { error: { message: 'Movie not found' } }, status: 404 if @movie.nil?
     return render json: { error: { message: 'User not found' } }, status: 404 if @user.nil?
 
