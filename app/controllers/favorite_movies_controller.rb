@@ -1,6 +1,9 @@
 class FavoriteMoviesController < ApplicationController
   def favorites_by_user
-    @favorite_movies = User.find_by(id: params[:user_id]).favorites
+    @user = User.find_by(id: params[:user_id])
+    return render json: { 'error': { 'message': 'User not found' } }, status: 404 if @user.nil?
+
+    @favorite_movies = @user.favorites
     render json: @favorite_movies
   end
 
