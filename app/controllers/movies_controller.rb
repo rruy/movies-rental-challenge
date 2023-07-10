@@ -1,26 +1,23 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
-    render json: @movies
+    @movies = Movie.all.page(params[:page]).per(10)
+
+    render json: {
+      movies: @movies,
+      total_pages: @movies.total_pages,
+      total_count: @movies.total_count,
+      current_page: @movies.current_page
+    }
   end
 
-  def recommendations
-    favorite_movies = User.find(params[:user_id]).favorites
-    @recommendations = RecommendationEngine.new(favorite_movies).recommendations
-    render json: @recommendations
+  def show
+    @movie = Movie.find(params[:id])
+    render json: @movie
   end
 
-  def user_rented_movies
-    @rented = User.find(params[:user_id]).rented
-    render json: @rented
-  end
+  private
 
-  def rent
-    user = User.find(params[:user_id])
-    movie = Movie.find(params[:id])
-    movie.available_copies -= 1
-    movie.save
-    user.rented << movie
-    render json: movie
+  def user_params
+    param.require(:movie).permit(:id, :name)
   end
 end
