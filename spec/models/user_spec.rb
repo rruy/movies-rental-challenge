@@ -8,6 +8,9 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { should have_many(:favorite_movies) }
+    it { should have_many(:favorites).through(:favorite_movies).source(:movie) }
+    it { should have_many(:rentals) }
+    it { should have_many(:rented).through(:rentals).source(:movie) }
   end
 
   describe 'validations' do

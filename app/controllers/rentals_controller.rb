@@ -10,8 +10,9 @@ class RentalsController < ApplicationController
     return render json: { error: { message: 'Movie not found' } }, status: 404 if @movie.nil?
     return render json: { error: { message: 'User not found' } }, status: 404 if @user.nil?
 
-    # TODO: Validate if movie is available to rent
-    # TODO: Validate if movie is allow to rent for this user and this movie isnt rented now
+    unless Rental.available_to_rent?(@movie.id, @user.id)
+      return error('Movie not available to rent', 422)
+    end
 
     ActiveRecord::Base.transaction do
       @movie.available_copies -= 1
@@ -19,14 +20,24 @@ class RentalsController < ApplicationController
       @user.rented << @movie
     end
 
-    render json: @movie
+    render json: @movie, status: 201
   end
 
   def rented_return
-    # TODO: Included flag to mark that movie is returned.
+    @rental = Rental.find_by(movie_id: params[:movie_id], user_id: params[:id])
+    return render json: { error: { message: 'Rental not found' } }, status: 404 if @rental.nil?
+
+    @rental.delivered_date = Date.today
+    @rental.save
+
+    render json: @rental
   end
 
   private
+
+  def error(message, status_code)
+    render json: { error: { message: message } }, status: status_code
+  end
 
   def set_user
     @user = User.find_by(id: params[:user_id])
