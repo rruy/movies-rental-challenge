@@ -2,9 +2,8 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe 'GET #show' do
-    it 'renders the user JSON'
+    it 'renders the user JSON' do
       user = User.create(name: 'John')
-
       get :show, params: { id: user.id }
 
       expect(response).to have_http_status(:success)
