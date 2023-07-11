@@ -61,17 +61,16 @@ I changed the original routes in order to padronize paths and don't use queries 
 
 | Method | Url  |  Description |
 | ------ | ------ | ------ |
-| GET | [/users/][PlDb]  |  List all users 
-| GET | [/users/:user_id][PlDb] | Get user by id 
-| GET | [/users/:user_id/favorites][PlDb] | List all favorites movies of specific user 
-| GET | [/users/:user_id/rented][PlDb] | List rented movies of specific user 
-| POST | [/users/:user_id/rented_return/:movie_id][PlDb] | Mark movie as return rented of specific user 
-| GET | [/movies/][PlDb] | List all movies with pagination - You can use query strings ?page=1&per_page=10 to paginate results 
-| GET | [/movies/:movie_id][PlDb] | Get movie by id 
-| GET | [/movies/:movie_id/recommendations/:user_id][PlDb] | Get recommendations by user based in our favorite movies 
-| POST | [/movies/:movie_id/rent_by_user/:user_id][PlDb] | Create a new record of rent by user_id and movie_id 
-| POST | [/movies/:movie_id/add_favorites/:user_id][PlDb] | Include movie in favorites of specific user 
-
+| GET | /users/  |  List all users 
+| GET | /users/:user_id | Get user by id 
+| GET | /users/:user_id/favorites | List all favorites movies of specific user 
+| GET | /users/:user_id/rented | List rented movies of specific user 
+| POST | /users/:user_id/rented_return/:movie_id | Mark movie as return rented of specific user 
+| GET | /movies/ | List all movies with pagination - You can use query strings ?page=1&per_page=10 to paginate results 
+| GET | /movies/:movie_id | Get movie by id 
+| GET | /movies/:movie_id/recommendations/:user_id | Get recommendations by user based in our favorite movies 
+| POST | /movies/:movie_id/rent_by_user/:user_id | Create a new record of rent by user_id and movie_id 
+| POST | /movies/:movie_id/add_favorites/:user_id | Include movie in favorites of specific user 
 
 
 # Install ElasticSearch at Local machine
@@ -125,3 +124,28 @@ It is should return result with similarity of query param:
   }
 ]
 ```
+
+
+# JWT Token - Authentication
+
+For test you need use this endpoint in order to get Bearer Token.
+```sh
+curl -X POST -H 'Content-Type: application/json' -d '{"email":"user@example.com","password":"password123"}' http://localhost:3000/auth
+```
+After that you can call the endpoint protected with auth authentication
+```sh
+curl -H 'Authorization: Bearer <token>' http://localhost:3000/movies
+```
+You can use Postman insted of cmd curl
+
+Access without token the resquest should return invalid token and dont allow acess in this endpoint
+
+![Alt text](/public/auth-invalid-token.png?raw=true "Invalid Token")
+
+For get Token you can pass informations email and password for auth, the endpoint should return bearer token. 
+
+![Alt text](/public/auth-token.png?raw=true "Get Bearer Token")
+
+Now you can access the endpoint with token
+
+![Alt text](/public/auth-authenticated.png?raw=true "User Authenticated")

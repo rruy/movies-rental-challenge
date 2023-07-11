@@ -51,6 +51,8 @@ gem "bootsnap", require: false
 gem 'kaminari'
 gem 'searchkick'
 gem 'elasticsearch', '< 7.14'
+gem 'jwt'
+gem 'bcrypt'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -82,4 +84,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'rails-controller-testing'
 end
