@@ -47,3 +47,57 @@ Remember, the main goal of this challenge is not to write a fully-functional app
 The code has dozens of potential improvements, and we don't expect you to work on all of them. Feel free to prioritize the ones you consider most important to address in **about 3 hours of work**.
 
 _**Happy Coding!**_
+
+
+
+# Install ElasticSearch at Local machine
+
+For Ubuntu:
+First of all you need instaal Java because it is a dependency of ElasticSearch
+```sh
+sudo apt-get install default-jdk
+```
+Now get package with install files
+```sh
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.0.0.deb
+``` 
+###Install the package
+
+```sh
+sudo dpkg -i elasticsearch-5.0.0.deb
+```
+Now run to start Elastic Search
+```sh
+ps -p 1
+```
+or 
+```sh
+sudo service elasticsearch start
+```
+For view if service is running
+```sh
+sudo service elasticsearch status
+```
+After That you can reindex catalog of movies in Elastic search with command of searchkick gem:
+```sh
+rails c
+Movie.reindex
+```
+Now you can find movies with mispelling params, example:
+```sh
+movies = Movie.search("Mad max")
+```
+It is should return result with similarity of query param:
+
+```
+  {
+    "id": 30,
+    "title": "Mad Max: Fury Road",
+    "genre": "Action",
+    "rating": 4.06,
+    "available_copies": 7,
+    "created_at": "2023-07-08T06:43:12.370Z",
+    "updated_at": "2023-07-08T06:43:12.370Z"
+  }
+]
+```
