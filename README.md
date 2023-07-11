@@ -50,6 +50,30 @@ _**Happy Coding!**_
 
 
 
+
+# Informations about Challeger Refactor
+
+I changed the original routes in order to padronize paths and don't use queries params
+
+### Routes 
+
+## Results of routes after refactored
+
+| Method | Url  |  Description |
+| ------ | ------ | ------ |
+| GET | [/users/][PlDb]  |  List all users 
+| GET | [/users/:user_id][PlDb] | Get user by id 
+| GET | [/users/:user_id/favorites][PlDb] | List all favorites movies of specific user 
+| GET | [/users/:user_id/rented][PlDb] | List rented movies of specific user 
+| POST | [/users/:user_id/rented_return/:movie_id][PlDb] | Mark movie as return rented of specific user 
+| GET | [/movies/][PlDb] | List all movies with pagination - You can use query strings ?page=1&per_page=10 to paginate results 
+| GET | [/movies/:movie_id][PlDb] | Get movie by id 
+| GET | [/movies/:movie_id/recommendations/:user_id][PlDb] | Get recommendations by user based in our favorite movies 
+| POST | [/movies/:movie_id/rent_by_user/:user_id][PlDb] | Create a new record of rent by user_id and movie_id 
+| POST | [/movies/:movie_id/add_favorites/:user_id][PlDb] | Include movie in favorites of specific user 
+
+
+
 # Install ElasticSearch at Local machine
 
 For Ubuntu:
