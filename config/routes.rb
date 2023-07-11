@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'movies#index'
 
-  resources :movies, only: [] do
+  resources :movies, only: [:show] do
     post '/rent_by_user/:user_id', to: 'rentals#create_rent'
     post '/add_favorites/:user_id', to: 'favorite_movies#create'
     get 'search/:query', to: 'movies#search', on: :collection

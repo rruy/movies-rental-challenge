@@ -39,4 +39,23 @@ RSpec.describe MoviesController, type: :controller do
       get :search, params: { query: query }
     end
   end
+
+  describe '#show' do
+    let(:movie) { FactoryBot.create(:movie) }
+
+    it 'returns JSON response with the requested movie' do
+      get :show, params: { id: movie.id }
+      expect(response).to have_http_status(:ok)
+      expect(response.content_type).to eq('application/json; charset=utf-8')
+
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response['id']).to eq(movie.id)
+      expect(parsed_response['title']).to eq(movie.title)
+    end
+
+    it 'finds the requested movie by id' do
+      expect(Movie).to receive(:find).with(movie.id.to_s).and_return(movie)
+      get :show, params: { id: movie.id }
+    end
+  end
 end
