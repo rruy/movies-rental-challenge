@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_011532) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_114145) do
   create_table "favorite_movies", id: false, force: :cascade do |t|
     t.integer "movie_id"
     t.integer "user_id"
@@ -43,6 +43,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_011532) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
   end
 
   add_foreign_key "favorite_movies", "movies"

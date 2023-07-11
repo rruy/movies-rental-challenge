@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_request
+
   def search
     movies = Movie.search(params['query'])
     render json: movies.results

@@ -3,6 +3,9 @@ require 'faker'
 FactoryBot.define do
   factory :user do
     name { Faker::Name.name }
-    # Additional attributes and associations can be defined here
+    email { Faker::Name.first_name+"@domain.com" }
+    username { Faker::Name.first_name.downcase }
+    password { '123456@1' }
+    password_confirmation { '123456@1' }
   end
 end
