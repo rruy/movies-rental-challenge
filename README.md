@@ -149,3 +149,17 @@ For get Token you can pass informations email and password for auth, the endpoin
 Now you can access the endpoint with token
 
 ![Alt text](/public/auth-authenticated.png?raw=true "User Authenticated")
+
+
+# Information about Pull-Requests and improvements
+
+For more details access the link and read the description about each PR:
+
+[PR1: Config rspec](https://github.com/rruy/movies-rental-challenge/pull/1)
+[PR2: Refactor controllers and unit test](https://github.com/rruy/movies-rental-challenge/pull/2)
+[PR3: Improvements test for models](https://github.com/rruy/movies-rental-challenge/pull/3)
+[PR4: Refactor in Recommendations Class](https://github.com/rruy/movies-rental-challenge/pull/4)
+[PR5: Install and configuration SearchKick](https://github.com/rruy/movies-rental-challenge/pull/5)
+[PR6: Added infos about routes](https://github.com/rruy/movies-rental-challenge/pull/6)
+[PR7: Added more tests into movie controller spec](https://github.com/rruy/movies-rental-challenge/pull/7)
+[PR8: Implementation of the authentication with JWT token](https://github.com/rruy/movies-rental-challenge/pull/8)
