@@ -159,6 +159,6 @@ For more details access the link and read the description about each PR:
 - [PR4: Refactor in Recommendations Class](https://github.com/rruy/movies-rental-challenge/pull/4)
 - [PR5: Install and configuration SearchKick](https://github.com/rruy/movies-rental-challenge/pull/5)
 - [PR6: Added infos about routes](https://github.com/rruy/movies-rental-challenge/pull/6)
-- PR7: Added more tests into movie controller spec](https://github.com/rruy/movies-rental-challenge/pull/7)
+- [PR7: Added more tests into movie controller spec](https://github.com/rruy/movies-rental-challenge/pull/7)
 - [PR8: Implementation of the authentication with JWT token](https://github.com/rruy/movies-rental-challenge/pull/8)
 - [PR9: Added infos about PR in Readme file](https://github.com/rruy/movies-rental-challenge/pull/9)
