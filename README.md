@@ -51,7 +51,7 @@ _**Happy Coding!**_
 
 
 
-# Informations about Challeger Refactor
+## Informations about Challeger Refactor
 
 I changed the original routes in order to padronize paths and don't use queries params
 
@@ -73,7 +73,7 @@ I changed the original routes in order to padronize paths and don't use queries 
 | POST | /movies/:movie_id/add_favorites/:user_id | Include movie in favorites of specific user 
 
 
-# Install ElasticSearch at Local machine
+## Install ElasticSearch at local machine
 
 For Ubuntu:
 First of all you need instaal Java because it is a dependency of ElasticSearch
@@ -125,8 +125,7 @@ It is should return result with similarity of query param:
 ]
 ```
 
-
-# JWT Token - Authentication
+## JWT Token - Authentication
 
 For test you need use this endpoint in order to get Bearer Token.
 ```sh
@@ -150,8 +149,7 @@ Now you can access the endpoint with token
 
 ![Alt text](/public/auth-authenticated.png?raw=true "User Authenticated")
 
-
-# Information about Pull-Requests and improvements
+## Information about Pull-Requests and improvements
 
 For more details access the link and read the description about each PR:
 
@@ -163,3 +161,4 @@ For more details access the link and read the description about each PR:
 [PR6: Added infos about routes](https://github.com/rruy/movies-rental-challenge/pull/6)
 [PR7: Added more tests into movie controller spec](https://github.com/rruy/movies-rental-challenge/pull/7)
 [PR8: Implementation of the authentication with JWT token](https://github.com/rruy/movies-rental-challenge/pull/8)
+[PR9: Added infos about PR in Readme file](https://github.com/rruy/movies-rental-challenge/pull/9)
